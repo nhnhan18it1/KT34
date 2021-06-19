@@ -1,0 +1,17 @@
+version: '3'
+
+services: 
+    flask:
+        build: ./
+        container_name: test_ctn
+        ports: 
+            - 1001:5000
+        volumes: 
+            - ./:/app
+    redis:
+        image: bitnami/redis
+        container_name: redis
+        ports: 
+            - 6379:6379
+        environment: 
+            - REDIS_PASSWORD=123
